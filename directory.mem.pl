@@ -3,7 +3,7 @@
 use warnings;
 use strict;
 
-my $dirname = "/iplant/home/schnabelr/fastq_cow";
+my $dirname = "/ipant/home/path/to/data/";
 my $systemArgs = "";
 my $prevBreed = "";
 my $prevID = "";
@@ -37,8 +37,8 @@ while(my $finput = <FILELISTING>)
     	print $EJFILE '"archive": true,'."\n";
     	print $EJFILE '"archivePath": "ercfrtz/schnabel/",'."\n";
     	print $EJFILE '"inputs": {'."\n";
-        print $EJFILE '"inputSequence1": "agave://data.iplantcollaborative.org/schnabelr/fastq_cow/'.$finput.'",'."\n";
-        print $EJFILE '"inputSequence2": "agave://data.iplantcollaborative.org/schnabelr/fastq_cow/'.$secondFile.'",'."\n";
+        print $EJFILE '"inputSequence1": "agave://data.iplantcollaborative.org/path/to/data/'.$finput.'",'."\n";
+        print $EJFILE '"inputSequence2": "agave://data.iplantcollaborative.org/path/to/data/'.$secondFile.'",'."\n";
         print $EJFILE '"referenceBundle": "agave://data.iplantcollaborative.org/shared/iastate-tacc-genomics/umd_3_1_Y_Mito.tar"'."\n";
     	print $EJFILE '},'."\n";
     	print $EJFILE '"parameters": {'."\n";
@@ -54,11 +54,11 @@ while(my $finput = <FILELISTING>)
 		{
 			$prevBreed = $nameBase[0];
 			$prevID = $nameBase[1];
-			$listOfFiles = '"agave://data.iplantcollaborative.org/ercfrtz/schnabel/'.$fileBaseName.'.mem.bam"';
+			$listOfFiles = '"agave://data.iplantcollaborative.org/path/to/output/'.$fileBaseName.'.mem.bam"';
 		}
 		elsif($nameBase[0] eq $prevBreed && $nameBase[1] eq $prevID)
 		{
-			$listOfFiles .= ',"agave://data.iplantcollaborative.org/ercfrtz/schnabel/'.$fileBaseName.'.mem.bam"';
+			$listOfFiles .= ',"agave://data.iplantcollaborative.org/path/to/output/'.$fileBaseName.'.mem.bam"';
 		}
 		else
 		{
@@ -103,8 +103,8 @@ while(my $finput = <FILELISTING>)
     		print $GFILE '"archive": true,'."\n";
     		print $GFILE '"archivePath": "ercfrtz/schnabel",'."\n";
     		print $GFILE '"inputs": {'."\n";
-        	print $GFILE '"inputBam": "agave://data.iplantcollaborative.org/ercfrtz/schnabel/'.$prevBreed.'.'.$prevID.'.bam",'."\n";
-        	print $GFILE '"inputBamBai": "agave://data.iplantcollaborative.org/ercfrtz/schnabel/'.$prevBreed.'.'.$prevID.'.bam.bai",'."\n";
+        	print $GFILE '"inputBam": "agave://data.iplantcollaborative.org/path/to/output/'.$prevBreed.'.'.$prevID.'.bam",'."\n";
+        	print $GFILE '"inputBamBai": "agave://data.iplantcollaborative.org/path/to/output/'.$prevBreed.'.'.$prevID.'.bam.bai",'."\n";
         	print $GFILE '"referenceBundle": "agave://data.iplantcollaborative.org/shared/iastate-tacc-genomics/umd_3_1_Y_Mito.tar",'."\n";
         	print $GFILE '"knownVariants": "agave://data.iplantcollaborative.org/shared/iastate-tacc-genomics/Bos_taurus.dbSNP.vcf"'."\n";
     		print $GFILE "},\n";
@@ -123,7 +123,7 @@ while(my $finput = <FILELISTING>)
 			
 			$prevBreed = $nameBase[0];
 			$prevID = $nameBase[1];
-			$listOfFiles = '"agave://data.iplantcollaborative.org/ercfrtz/schnabel/'.$fileBaseName.'.mem.bam"';
+			$listOfFiles = '"agave://data.iplantcollaborative.org/path/to/output/'.$fileBaseName.'.mem.bam"';
 		}
   	}
 }
@@ -169,8 +169,8 @@ print $GFILE '"batchQueue": "normal",'."\n";
 print $GFILE '"archive": true,'."\n";
 print $GFILE '"archivePath": "ercfrtz/schnabel",'."\n";
 print $GFILE '"inputs": {'."\n";
-print $GFILE '"inputBam": "agave://data.iplantcollaborative.org/ercfrtz/schnabel/'.$prevBreed.'.'.$prevID.'.bam",'."\n";
-print $GFILE '"inputBamBai": "agave://data.iplantcollaborative.org/ercfrtz/schnabel/'.$prevBreed.'.'.$prevID.'.bam.bai",'."\n";
+print $GFILE '"inputBam": "agave://data.iplantcollaborative.org/path/to/output/'.$prevBreed.'.'.$prevID.'.bam",'."\n";
+print $GFILE '"inputBamBai": "agave://data.iplantcollaborative.org/path/to/output/'.$prevBreed.'.'.$prevID.'.bam.bai",'."\n";
 print $GFILE '"referenceBundle": "agave://data.iplantcollaborative.org/shared/iastate-tacc-genomics/umd_3_1_Y_Mito.tar",'."\n";
 print $GFILE '"knownVariants": "agave://data.iplantcollaborative.org/shared/iastate-tacc-genomics/Bos_taurus.dbSNP.vcf"'."\n";
 print $GFILE "},\n";
